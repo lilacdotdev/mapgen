@@ -1,0 +1,177 @@
+/* -----== VARS ==----- */
+:root {
+    --primary: #4a4e69;
+    --secondary: #22223b;
+    --accent: #9a8c98;
+    --light: #f2e9e4;
+}
+
+/* -----== BASE ITEMS ==----- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: var(--light);
+    font-family: sans-serif;
+}
+
+html, body {
+    margin: 0;
+    border: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--primary);
+}
+
+button {
+    border: 1px solid var(--light);
+    padding: 1%;
+    background-color: var(--secondary);
+    color: var(--light);
+    border-radius: 5%;
+}
+button:hover {
+    border: 1px solid var(--secondary);
+    padding: 1%;
+    background-color: var(--accent);
+    color: var(--light);
+    transform: rotate(5deg);
+    cursor: pointer;
+}
+
+i {
+    color: var(--light);
+}
+
+.slider {
+    appearance: none;
+    width: 100%;
+    height: 2px;
+    background: var(--light);
+    cursor: pointer;
+}
+.slider::-webkit-slider-thumb {
+    appearance: none;
+    width: 15px;
+    height: 15px;
+    border-radius: 30%;
+    background: var(--accent);
+}
+
+
+/* -----== WRAPPERS ==----- */
+.flex-wrapper {
+    display: flex;
+    flex-direction: row;
+    height: 93%;
+}
+
+.leftui {
+    width: 20%;
+    background-color: var(--primary);
+    border-right: 2px solid var(--light);
+    color: var(--light);
+    padding: 8px;
+}
+
+.rightui {
+    width: 80%;
+}
+
+
+/* -----== Navbar ==----- */
+.navbar {
+    height: 4%;
+    display: flex;
+    align-items: center;
+    padding-left: 8px;
+    background-color: var(--secondary);
+}
+
+.titletext {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+
+/* -----== Left UI Items ==----- */
+.parameditor {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.param-section {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Item Stylings */
+textarea {
+    width: 80%;
+    resize: none;
+    background-color: var(--light);
+    color: var(--secondary);
+    border: none;
+    text-align: center;
+}
+
+.input-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 5px;
+}
+
+.section-title {
+    border-bottom: 2px groove var(--light);
+}
+
+.section-separator {
+    margin-top: 5%;
+    margin-bottom: 1%;
+    border-bottom: 2px solid var(--light);
+}
+
+.buttonbar {
+    margin-top: 6px;
+
+    display: flex;
+    gap: 6px;
+    justify-content: center;
+}
+
+
+/* -----== Right UI Items ==----- */
+
+#map {
+    width: 100%;
+    height: 100%;
+    background-color: #9a8c98;
+}
+
+
+/* -----== Footer ==----- */
+footer {
+    height: 3%;
+    padding-left: 8px;
+    padding-right: 8px;
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--secondary);
+}
+
+.left-items {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.right-items {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
