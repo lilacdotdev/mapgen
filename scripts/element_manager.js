@@ -1,19 +1,20 @@
-/* |----- Methods / Events ------| */
-/* |                             | */
-/* | Methods: random_gen(lower,  | */
-/* |                     upper)  | */
-/* |                             | */
-/* | Events: Seed, Water, Shores,| */
-/* |         Forest, Mountains,  | */
-/* |         Ice                 | */
-/* |                             | */
-/* |----- Methods / Events ------| */
+/* |------ Methods / Events ------| */
+/* |                              | */
+/* | Methods: random_gen(lower,   | */
+/* |            upper), clamp()   | */
+/* |                              | */
+/* | Events: Seed, Water, Shores, | */
+/* |         Forest, Mountains,   | */
+/* |         Ice, Generate        | */
+/* |                              | */
+/* |------ Methods / Events ------| */
 
 
 /* |-------===| METHODS |===-------| */
 function random_gen(lower, upper) {
   return parseFloat(Math.random() * (upper - lower) + lower).toFixed(2);
 }
+
 
 function clamp() {
     e_shore_range.min = parseFloat(e_water_value.innerHTML) + 0.01;
@@ -33,6 +34,7 @@ e_seed_btn.addEventListener("click", () => {
   redraw();
 });
 
+
 // ---=== | WATER | ===--- //
 e_water_range.addEventListener("change", () => {
   e_water_value.innerHTML = e_water_range.value;
@@ -45,6 +47,7 @@ e_water_btn.addEventListener("click", () => {
   e_water_range.value = e_water_value.innerHTML;
   redraw();
 });
+
 
 // ---=== | SHORES | ===--- //
 e_shore_range.addEventListener("change", () => {
@@ -59,6 +62,7 @@ e_shore_btn.addEventListener("click", () => {
   redraw();
 });
 
+
 // ---=== | FORESTS | ===--- //
 e_forest_range.addEventListener("change", () => {
   e_forest_value.innerHTML = e_forest_range.value;
@@ -71,6 +75,7 @@ e_forest_btn.addEventListener("click", () => {
   e_forest_range.value = e_mountain_value.innerHTML;
   redraw();
 });
+
 
 // ---=== | MOUNTAINS | ===--- //
 e_mountain_range.addEventListener("change", () => {
@@ -85,6 +90,7 @@ e_mountain_btn.addEventListener("click", () => {
   redraw();
 });
 
+
 // ---=== | ICY PEAKS | ===--- //
 e_ice_range.addEventListener("change", () => {
   e_ice_value.innerHTML = e_ice_range.value;
@@ -97,6 +103,7 @@ e_ice_btn.addEventListener("click", () => {
   e_ice_range.value = e_ice_value.innerHTML;
   redraw();
 });
+
 
 // ---=== | GENERATE BUTTON | ===--- //
 document.getElementById("generate_btn").addEventListener("click", () => {

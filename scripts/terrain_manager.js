@@ -7,14 +7,12 @@
 
 /* |-------===| OBJECTS |===-------| */
 
-// ---=== | Terrain Objects | ===--- //
+// ---=== | Terrain Object | ===--- //
 function Terrain(primary, secondary) {
     this.c_primary = primary;
     this.c_secondary = secondary;
 }
 
-
-/* |-------===| OBJECTS |===-------| */
 
 // ---=== | Terrain Objects | ===--- //
 const deep_ocean = new Terrain (
@@ -51,6 +49,20 @@ const ice = new Terrain(
 /* |-------===| METHODS |===-------| */
 
 // ---=== | Terrain_Selector | ===--- //
-function Terrain_Selector(value) {
-
+function noise_to_terrain(value) {
+    if(value < e_water_value.innerHTML/1.25) {
+        return color(75, 95, 155);
+    } else if(value < e_water_value.innerHTML) {
+        return color(100, 140, 180);
+    } else if(value < parseFloat(e_water_value.innerHTML) + 0.01) {
+        return color(0,0,0);
+    } else if(value < e_shore_value.innerHTML) {
+        return color(239, 230, 220);
+    } else if(value < e_forest_value.innerHTML) {
+        return color(112, 169, 112);
+    } else if(value < e_mountain_value.innerHTML) {
+        return color(179, 191, 204);
+    } else if(value < e_ice_value.innerHTML) {
+        return color(255, 255, 255);
+    }
 }

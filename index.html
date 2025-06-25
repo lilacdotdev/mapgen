@@ -21,7 +21,7 @@
                     <h2 class="section-title">Parameters</h2>
                     <p><strong>Note:</strong> If the map looks warped, this is due to your window's aspect ratio.
                         The map generates at 16:9 then stretches to match the view. 
-                        Saving will be unaffected,though, so don't worry!</p>
+                        Saving will be unaffected, though, so don't worry!</p>
                     <h3 class="section-separator">Seed</h3>
                     <div class="input-item seed">
                         <h4>Seed</h4>
@@ -31,7 +31,7 @@
                     <h3 class="section-separator">Noise Settings</h3>
                     <div class="input-item zoffset">
                         <h4>Z-Offset</h4>
-                        <input class="numberarea" id="zoffset_input" type="number" min="1" max="200" placeholder="Zoom Offset"></input>
+                        <input class="numberarea" id="zoffset_input" type="number" min="1" max="200" value="150" placeholder="Zoom Offset"></input>
                         <button id="zoffset_btn"><i class="fa fa-repeat"></i></button>
                     </div>
 
@@ -76,6 +76,15 @@
                         </select>
                         <button id="filter_btn"><i class="fa fa-repeat"></i></button>
                     </div>
+                    <div class="input-item bound">
+                        <h4>Bounds</h4>
+                        <select class="filtersel" id="bound_input">
+                            <option>Rectangular (Default)</option>
+                            <option>Circular</option>
+                            <option>None</option>
+                        </select>
+                        <button id="bound_btn"><i class="fa fa-repeat"></i></button>
+                    </div>
                 </div>
                 <div class="buttonbar">
                     <button id="save_btn">Save Map</button>
@@ -98,9 +107,9 @@
     <script src="https://cdn.jsdelivr.net/npm/p5@1.11.8/lib/p5.min.js"></script>
     <script src="./scripts/parameter_manager.js"></script>
     <script src="./scripts/element_manager.js"></script>
-    <script src="./scripts/filter_manager.js"></script>
-    <script src="./scripts/map_gen.js"></script>
-    <script src="./scripts/noise_system.js"></script>
     <script src="./scripts/terrain_manager.js"></script>
+    <script src="./scripts/noise_system.js"></script>
+    <script src="./scripts/map_gen.js"></script>
+    <script src="./scripts/filter_manager.js"></script>
 </body>
 </html>

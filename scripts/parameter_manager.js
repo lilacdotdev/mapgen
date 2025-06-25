@@ -2,7 +2,7 @@
 /* |                                    | */
 /* | Parameters: Elements- seed, water  | */
 /* |             shore, forest, mtn, ice| */
-/* |             canvas (map)           | */
+/* |             z, filter, canvas (map)| */
 /* |                                    | */
 /* |----- Parameters and Variables -----| */
 
@@ -45,6 +45,15 @@ const e_mountain_btn = document.getElementById("mountain_btn");
 const e_ice_value = document.getElementById("ice_value");
 const e_ice_range = document.getElementById("ice_range");
 const e_ice_btn = document.getElementById("ice_btn");
+
+
+/* ---==| Zoom/Filter |==--- */
+// Elements
+const e_zoffset = document.getElementById("zoffset_input");
+const e_zoffset_btn = document.getElementById("zoffset_btn");
+
+const e_filter = document.getElementById("filter_input");
+const e_filter_btn = document.getElementById("filter_btn");
 
 
 /* ---==| Map Canvas |==--- */
