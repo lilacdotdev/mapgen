@@ -3,16 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MapGen | Fantasy Map Generator</title>
-    <script src="https://cdn.jsdelivr.net/npm/p5@1.11.8/lib/p5.min.js"></script> 
-    <link rel="stylesheet" href="./css/style.css">
+    <title>MapGen | Fantasy Map Generator</title> 
+    <link rel="stylesheet" href="./style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
     <nav class="navbar">
         <div class="titletext">
             <h1 id="title">MapGen</h1>
-            <h3 id="subtitle">by lilac</h3>
+            <h3 id="subtitle">by <a href="https://lilaccs.dev">lilac</a></h3>
         </div>
     </nav>
     <div class="flex-wrapper">
@@ -20,39 +19,63 @@
             <div class="parameditor">
                 <div class="param-section">
                     <h2 class="section-title">Parameters</h2>
+                    <p><strong>Note:</strong> If the map looks warped, this is due to your window's aspect ratio.
+                        The map generates at 16:9 then stretches to match the view. 
+                        Saving will be unaffected,though, so don't worry!</p>
                     <h3 class="section-separator">Seed</h3>
                     <div class="input-item seed">
                         <h4>Seed</h4>
                         <textarea id="seed_input" rows="1" maxlength="8" placeholder="8-digit Seed">00000001</textarea>
                         <button id="seed_btn"><i class="fa fa-repeat"></i></button>
                     </div>
+                    <h3 class="section-separator">Noise Settings</h3>
+                    <div class="input-item zoffset">
+                        <h4>Z-Offset</h4>
+                        <input class="numberarea" id="zoffset_input" type="number" min="1" max="200" placeholder="Zoom Offset"></input>
+                        <button id="zoffset_btn"><i class="fa fa-repeat"></i></button>
+                    </div>
 
                     <h3 class="section-separator">Terrain Coefficients</h3>
                     <div class="input-item water">
                         <h4>Water</h4>
-                        <input type="range" min="1" max="100" value="50" class="slider" id="water_range">
-                        <p id="water_value">50</p>
+                        <input type="range" min="0.1" max="0.8" value="0.4" step="0.01" class="slider" id="water_range">
+                        <p id="water_value">0.4</p>
                         <button id="water_btn"><i class="fa fa-repeat"></i></button>
-                    </div>
-                    <div class="input-item ice">
-                        <h4>Ice</h4>
-                        <input type="range" min="1" max="100" value="50" class="slider" id="ice_range">
-                        <p id="ice_value">50</p>
-                        <button id="ice_btn"><i class="fa fa-repeat"></i></button>
                     </div>
                     <div class="input-item shore">
                         <h4>Shoreline</h4>
-                        <input type="range" min="1" max="100" value="50" class="slider" id="shore_range">
-                        <p id="shore_value">50</p>
+                        <input type="range" min="0.1" max="1.0" value="0.5" step="0.01" class="slider" id="shore_range">
+                        <p id="shore_value">0.5</p>
                         <button id="shore_btn"><i class="fa fa-repeat"></i></button>
                     </div>
+                    <div class="input-item forest">
+                        <h4>Forest</h4>
+                        <input type="range" min="0.1" max="1.0" value="0.6" step="0.01" class="slider" id="forest_range">
+                        <p id="forest_value">0.6</p>
+                        <button id="forest_btn"><i class="fa fa-repeat"></i></button>
+                    </div>
                     <div class="input-item mountain">
-                        <h4>Mountains</h4>
-                        <input type="range" min="1" max="100" value="50" class="slider" id="mountain_range">
-                        <p id="mountain_value">50</p>
+                        <h4>Mountain</h4>
+                        <input type="range" min="0.1" max="1.0" value="0.75" step="0.01" class="slider" id="mountain_range">
+                        <p id="mountain_value">0.75</p>
                         <button id="mountain_btn"><i class="fa fa-repeat"></i></button>
                     </div>
-
+                    <div class="input-item ice">
+                        <h4>Ice</h4>
+                        <input type="range" min="0.1" max="1.0" value="0.9" step="0.01" class="slider" id="ice_range">
+                        <p id="ice_value">0.9</p>
+                        <button id="ice_btn"><i class="fa fa-repeat"></i></button>
+                    </div>
+                    <h3 class="section-separator">Filter</h3>
+                    <div class="input-item filter">
+                        <h4>Filter</h4>
+                        <select class="filtersel" id="filter_input">
+                            <option>Gradient (Default)</option>
+                            <option>Fantasy</option>
+                            <option>3D</option>
+                        </select>
+                        <button id="filter_btn"><i class="fa fa-repeat"></i></button>
+                    </div>
                 </div>
                 <div class="buttonbar">
                     <button id="save_btn">Save Map</button>
@@ -72,7 +95,12 @@
             <img alt="Static Badge" src="https://img.shields.io/badge/Made_with_love-pink?style=flat&logo=data%3Aimage%2Fsvg%2Bxml%3Bbase64%2CPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLWhlYXJ0LWljb24gbHVjaWRlLWhlYXJ0Ij48cGF0aCBkPSJNMTkgMTRjMS40OS0xLjQ2IDMtMy4yMSAzLTUuNUE1LjUgNS41IDAgMCAwIDE2LjUgM2MtMS43NiAwLTMgLjUtNC41IDItMS41LTEuNS0yLjc0LTItNC41LTJBNS41IDUuNSAwIDAgMCAyIDguNWMwIDIuMyAxLjUgNC4wNSAzIDUuNWw3IDdaIi8%2BPC9zdmc%2B">
         </div>
     </footer>
-    <script src="./js/param_manager.js"></script>
-    <script src="./js/mapgen.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.11.8/lib/p5.min.js"></script>
+    <script src="./scripts/parameter_manager.js"></script>
+    <script src="./scripts/element_manager.js"></script>
+    <script src="./scripts/filter_manager.js"></script>
+    <script src="./scripts/map_gen.js"></script>
+    <script src="./scripts/noise_system.js"></script>
+    <script src="./scripts/terrain_manager.js"></script>
 </body>
 </html>
