@@ -55,6 +55,9 @@ const e_zoffset_btn = document.getElementById("zoffset_btn");
 const e_filter = document.getElementById("filter_input");
 const e_filter_btn = document.getElementById("filter_btn");
 
+const e_bound = document.getElementById("bound_input");
+const e_bound_btn = document.getElementById("bound_btn");
+
 
 /* ---==| Map Canvas |==--- */
 // Elements

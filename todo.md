@@ -1,5 +1,7 @@
 # Todo
 
+## Integrate new UI naming scheme
+
 ## Filters
 - Gradient
 - Fantasty
@@ -14,3 +16,6 @@ Implement random seed on page begin.
 
 ## Save
 Implement `Save Map` feature
+
+## Biomes
+Implement biome/climate system
