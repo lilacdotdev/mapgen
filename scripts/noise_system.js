@@ -15,7 +15,7 @@ function perlin_noise() {
     for (x = 0; x < width; x++) {
         map[x] = [];
         for (y = 0; y < height; y++) {
-            let noise_value = noise(x/e_zoffset.value, y/e_zoffset.value)
+            let noise_value = noise(x/zoom_slider.value, y/zoom_slider.value)
             map[x][y] = noise_value*255;
         }
     }

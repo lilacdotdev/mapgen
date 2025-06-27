@@ -22,7 +22,7 @@ function draw() {
 
     for(let x = 0; x < width; x++) {
         for(let y = 0; y < height; y++) {
-            // set(x,y, map_boundary_box[x][y]);
+            //set(x,y, map_texture[x][y]);
             set(x, y, noise_to_terrain((map_texture[x][y] * map_boundary_box[x][y]) / (255*255)));
         } 
     }

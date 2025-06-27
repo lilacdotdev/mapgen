@@ -1,63 +1,83 @@
 /* |----- Parameters and Variables -----| */
 /* |                                    | */
-/* | Parameters: Elements- seed, water  | */
-/* |             shore, forest, mtn, ice| */
-/* |             z, filter, canvas (map)| */
+/* | Parameters: Elements into consts   | */
 /* |                                    | */
 /* |----- Parameters and Variables -----| */
 
+/* -----===| TERRAIN |===----- */
 
-/* ---==| Seed |==--- */
-const e_seed_btn = document.getElementById("seed_btn");
-const e_seed_input = document.getElementById("seed_input");
+/* ---==| Water | Slider |==--- */
+const water_slider = document.getElementById("water_slider");
+const water_display = document.getElementById("water_display");
 
+/* ---==| Shores | Slider |==--- */
+const shores_slider = document.getElementById("shores_slider");
+const shores_display = document.getElementById("shores_display");
 
-/* ---==| Water Param |==--- */
-// Elements
-const e_water_value = document.getElementById("water_value");
-const e_water_range = document.getElementById("water_range");
-const e_water_btn = document.getElementById("water_btn");
+/* ---==| Mountains | Slider |==--- */
+const mountains_slider = document.getElementById("mountains_slider");
+const mountains_display = document.getElementById("mountains_display");
 
+/* ---==| Biome | Slider |==--- */
+const biomes_slider = document.getElementById("biomes_slider");
+const biomes_display = document.getElementById("biomes_display");
 
-/* ---==| Shoreline param |==--- */
-// Elements
-const e_shore_value = document.getElementById("shore_value");
-const e_shore_range = document.getElementById("shore_range");
-const e_shore_btn = document.getElementById("shore_btn");
-
-
-/* ---==| Forest Param |==--- */
-// Elements
-const e_forest_value = document.getElementById("forest_value");
-const e_forest_range = document.getElementById("forest_range");
-const e_forest_btn = document.getElementById("forest_btn");
+/* ---==| Climate | Slider |==--- */
+const climate_slider = document.getElementById("climate_slider");
+const climate_display = document.getElementById("climate_display");
+/* -----===| TERRAIN |===----- */
 
 
-/* ---==| Mountain Param |==--- */
-// Elements
-const e_mountain_value = document.getElementById("mountain_value");
-const e_mountain_range = document.getElementById("mountain_range");
-const e_mountain_btn = document.getElementById("mountain_btn");
+/* -----===| BOUNDARY |===----- */
+/* ---==| Boundary | SELECT |==--- */
+const boundary_select = document.getElementById("boundary_select");
+
+/* ---==| X_outer | Slider |==--- */
+const xo_slider = document.getElementById("xo_slider");
+const xo_display = document.getElementById("xo_display");
+
+/* ---==| X_inner | Slider |==--- */
+const xi_slider = document.getElementById("xi_slider");
+const xi_display = document.getElementById("xi_display");
+
+/* ---==| Y_outer | Slider |==--- */
+const yo_slider = document.getElementById("yo_slider");
+const yo_display = document.getElementById("yo_display");
+
+/* ---==| Y_inner | Slider |==--- */
+const yi_slider = document.getElementById("yi_slider");
+const yi_display = document.getElementById("yi_display");
+
+/* ---==| Seed | Numerical |==--- */
+const zoom_slider = document.getElementById("zoom_slider");
+const zoom_display = document.getElementById("zoom_display");
+/* -----===| BOUNDARY |===----- */
 
 
-/* ---==| Ice Param |==--- */
-// Elements
-const e_ice_value = document.getElementById("ice_value");
-const e_ice_range = document.getElementById("ice_range");
-const e_ice_btn = document.getElementById("ice_btn");
+/* -----===| NOISE |===----- */
+/* ---==| Seed | Numerical |==--- */
+const seed_numerical = document.getElementById("seed_numerical");
+
+/* ---==| Octaves | Numerical |==--- */
+const octaves_numerical = document.getElementById("octaves_numerical");
+
+/* ---==| Intensity | Numerical |==--- */
+const intensity_numerical = document.getElementById("intensity_numerical");
+
+/* ---==| Falloff | Numerical |==--- */
+const falloff_numerical = document.getElementById("falloff_numerical");
+/* -----===| NOISE |===----- */
 
 
-/* ---==| Zoom/Filter |==--- */
-// Elements
-const e_zoffset = document.getElementById("zoffset_input");
-const e_zoffset_btn = document.getElementById("zoffset_btn");
+/* -----===| OTHER |===----- */
+/* ---==| Filter | SELECT |==--- */
+const filter_select = document.getElementById("filter_select");
 
-const e_filter = document.getElementById("filter_input");
-const e_filter_btn = document.getElementById("filter_btn");
-
-const e_bound = document.getElementById("bound_input");
-const e_bound_btn = document.getElementById("bound_btn");
-
+/* ---==| Buttons |==--- */
+const save_button = document.getElementById("save_button");
+const generate_button = document.getElementById("generate_button");
+const random_button = document.getElementById("random_button");
+/* -----===| OTHER |===----- */
 
 /* ---==| Map Canvas |==--- */
 // Elements

@@ -16,96 +16,125 @@ function random_gen(lower, upper) {
 }
 
 
-function clamp() {
-    e_shore_range.min = parseFloat(e_water_value.innerHTML) + 0.01;
-    e_forest_range.min = parseFloat(e_shore_value.innerHTML) + 0.01;
-    e_mountain_range.min = parseFloat(e_forest_value.innerHTML) + 0.01;
-    e_ice_range.min = parseFloat(e_mountain_value.innerHTML) + 0.01;
-}
-
-
-/* |-------===| EVENTS |===-------| */
-
-// ---=== | Seed | ===--- //
-e_seed_btn.addEventListener("click", () => {
-  e_seed_input.value = parseFloat(String(random_gen(0,99999999)).padStart(8, "0")).toFixed(0);
-  noiseSeed(e_seed_input.value);
-  clamp();
-  redraw();
-});
-
-
+/* |-------===| EVENTS | SLIDERS |===-------| */
 // ---=== | WATER | ===--- //
-e_water_range.addEventListener("change", () => {
-  e_water_value.innerHTML = e_water_range.value;
-  clamp();
+water_slider.addEventListener("change", () => {
+  water_display.innerHTML = water_slider.value + "%";
   redraw();
 });
-e_water_btn.addEventListener("click", () => {
-  clamp();
-  e_water_value.innerHTML = random_gen(e_water_range.min,0.8);
-  e_water_range.value = e_water_value.innerHTML;
-  redraw();
-});
-
 
 // ---=== | SHORES | ===--- //
-e_shore_range.addEventListener("change", () => {
-  e_shore_value.innerHTML = e_shore_range.value;
-  clamp();
+shores_slider.addEventListener("change", () => {
+  shores_display.innerHTML = shores_slider.value + "%";
   redraw();
 });
-e_shore_btn.addEventListener("click", () => {
-  clamp();
-  e_shore_value.innerHTML = random_gen(e_shore_range.min,1.0);
-  e_shore_range.value = e_shore_value.innerHTML;
-  redraw();
-});
-
-
-// ---=== | FORESTS | ===--- //
-e_forest_range.addEventListener("change", () => {
-  e_forest_value.innerHTML = e_forest_range.value;
-  clamp();
-  redraw();
-});
-e_forest_btn.addEventListener("click", () => {
-  clamp();
-  e_forest_value.innerHTML = random_gen(e_forest_range.min,1.0);
-  e_forest_range.value = e_mountain_value.innerHTML;
-  redraw();
-});
-
 
 // ---=== | MOUNTAINS | ===--- //
-e_mountain_range.addEventListener("change", () => {
-  e_mountain_value.innerHTML = e_mountain_range.value;
-  clamp();
-  redraw();
-});
-e_mountain_btn.addEventListener("click", () => {
-  clamp();
-  e_mountain_value.innerHTML = random_gen(e_mountain_range.min,1.0);
-  e_mountain_range.value = e_mountain_value.innerHTML;
+mountains_slider.addEventListener("change", () => {
+  mountains_display.innerHTML = mountains_slider.value + "%";
   redraw();
 });
 
-
-// ---=== | ICY PEAKS | ===--- //
-e_ice_range.addEventListener("change", () => {
-  e_ice_value.innerHTML = e_ice_range.value;
-  clamp();
-  redraw();
-});
-e_ice_btn.addEventListener("click", () => {
-  clamp();
-  e_ice_value.innerHTML = random_gen(e_ice_range.min,1.0);
-  e_ice_range.value = e_ice_value.innerHTML;
+// ---=== | BIOMES | ===--- //
+biomes_slider.addEventListener("change", () => {
+  biomes_display.innerHTML = biomes_slider.value + "%";
   redraw();
 });
 
+// ---=== | CLIMATE | ===--- //
+climate_slider.addEventListener("change", () => {
+  climate_display.innerHTML = climate_slider.value + "%";
+  redraw();
+});
 
-// ---=== | GENERATE BUTTON | ===--- //
-document.getElementById("generate_btn").addEventListener("click", () => {
+// ---=== | X_OUTER | ===--- //
+xo_slider.addEventListener("change", () => {
+  xo_display.innerHTML = xo_slider.value + "%";
+  redraw();
+});
+
+// ---=== | X_INNER | ===--- //
+xi_slider.addEventListener("change", () => {
+  xi_display.innerHTML = xi_slider.value + "%";
+  redraw();
+});
+
+// ---=== | Y_OUTER | ===--- //
+yo_slider.addEventListener("change", () => {
+  yo_display.innerHTML = yo_slider.value + "%";
+  redraw();
+});
+
+// ---=== | Y_INNER | ===--- //
+yi_slider.addEventListener("change", () => {
+  yi_display.innerHTML = yi_slider.value + "%";
+  redraw();
+});
+
+// ---=== | ZOOM | ===--- //
+zoom_slider.addEventListener("change", () => {
+  zoom_display.innerHTML = zoom_slider.value;
+  redraw();
+});
+/* |-------===| EVENTS | SLIDERS |===-------| */
+
+
+/* |-------===| EVENTS | NUMERICAL |===-------| */
+// ---=== | Seed | ===--- //
+seed_numerical.addEventListener("keydown", (event) => {
+  if(event.key === "Enter"){
+    seed_numerical.blur();
+    noiseSeed(seed_numerical.value);
+    redraw();
+  }
+});
+seed_numerical.addEventListener("change", () => {
+  noiseSeed(seed_numerical.value);
+  redraw();
+});
+
+// ---=== | Octaves | ===--- //
+octaves_numerical.addEventListener("keydown", (event) => {
+  if(event.key == "Enter"){
+    octaves_numerical.blur();
+    redraw();
+  }
+});
+
+// ---=== | Intensity | ===--- //
+intensity_numerical.addEventListener("keydown", (event) => {
+  if(event.key == "Enter"){
+    intensity_numerical.blur();
+    redraw();
+  }
+});
+
+// ---=== | Falloff | ===--- //
+falloff_numerical.addEventListener("keydown", (event) => {
+  if(event.key == "Enter"){
+    falloff_numerical.blur();
+    redraw();
+  }
+});
+/* |-------===| EVENTS | NUMERICAL |===-------| */
+
+
+/* |-------===| EVENTS | SELECT |===-------| */
+// ---=== | Boundary | ===--- //
+boundary_select.addEventListener("change", () => {
+  redraw();
+});
+
+// ---=== | Filter | ===--- //
+filter_select.addEventListener("change", () => {
+  redraw();
+});
+/* |-------===| EVENTS | SELECT |===-------| */
+
+
+/* |-------===| EVENTS | BUTTONS |===-------| */
+// ---=== | Generate | ===--- //
+document.getElementById("generate_button").addEventListener("click", () => {
     redraw();
 });
+/* |-------===| EVENTS | BUTTONS |===-------| */

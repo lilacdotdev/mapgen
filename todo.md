@@ -1,21 +1,17 @@
 # Todo
+---
+- Fix Seed Value
+ - Limit: 8 char
+ - Value padded by 0s leftward (use regex)
+ - Start with random value
 
-## Integrate new UI naming scheme
+- Create Voronoi Texture
+- Implement Biome/Climate System
 
-## Filters
-- Gradient
-- Fantasty
-- 3d
+- Implement Filters
 
-## Coeffs
-Redo Coeff system to enforce clamping
-possibly create min/max bounds /100 and force people to be between
-
-## Seed Changes
-Implement random seed on page begin.
-
-## Save
-Implement `Save Map` feature
-
-## Biomes
-Implement biome/climate system
+- Save Map Feature
+---
+# Roadmap
+- Plate Tectonics
+ - Larger Voronoi for plates?

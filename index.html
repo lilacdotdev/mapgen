@@ -19,8 +19,8 @@
 
         <!-- LEFT UI -->
         <div class="leftui">
-            <div class="parameditor">
-                <div class="param-section">
+            <div class="parameter-editor">
+                <div class="parameter-section">
                     <h2 class="section-title">Settings</h2>
 
                     <!-- TERRAIN SETTINGS -->
@@ -34,18 +34,18 @@
                             <h4>Climate</h4>
                         </div>
                         <div class="parameter-inputs">
-                            <input id="water_range" class="slider" type="range" min="0" max="100" value="50" step="5">
-                            <input id="water_range" class="slider" type="range" min="0" max="100" value="50" step="5">
-                            <input id="water_range" class="slider" type="range" min="0" max="100" value="50" step="5">
-                            <input id="water_range" class="slider" type="range" min="0" max="100" value="50" step="5">
-                            <input id="water_range" class="slider" type="range" min="0" max="100" value="50" step="5">
+                            <input id="water_slider" class="slider" type="range" min="0" max="100" value="50" step="5">
+                            <input id="shores_slider" class="slider" type="range" min="0" max="100" value="50" step="5">
+                            <input id="mountains_slider" class="slider" type="range" min="0" max="100" value="50" step="5">
+                            <input id="biomes_slider" class="slider" type="range" min="0" max="100" value="50" step="5">
+                            <input id="climate_slider" class="slider" type="range" min="0" max="100" value="50" step="5">
                         </div>
                         <div class="parameter-values">
-                            <p>50%</p>
-                            <p>50%</p>
-                            <p>50%</p>
-                            <p>50%</p>
-                            <p>50%</p>
+                            <p id="water_display">50%</p>
+                            <p id="shores_display">50%</p>
+                            <p id="mountains_display">50%</p>
+                            <p id="biomes_display">50%</p>
+                            <p id="climate_display">50%</p>
                         </div>
                     </div>
 
@@ -56,7 +56,11 @@
                             <h4>Boundary Shape</h4>
                         </div>
                         <div class="parameter-inputs">
-                            <input id="water_range" class="numerical" type="number" min="0" max="100" value="50" step="5">
+                            <select id="boundary_select" class="select">
+                                <option>Square</option>
+                                <option>Circle</option>
+                                <option>None</option>
+                            </select>
                         </div>
                     </div>
                     <div class="terrain parameter-group">
@@ -65,18 +69,21 @@
                             <h4>X_Inner</h4>
                             <h4>Y_Outer</h4>
                             <h4>Y_Inner</h4>
+                            <h4>Zoom</h4>
                         </div>
                         <div class="parameter-inputs">
-                            <input id="water_range" class="slider" type="range" min="0" max="100" value="50" step="5">
-                            <input id="water_range" class="slider" type="range" min="0" max="100" value="50" step="5">
-                            <input id="water_range" class="slider" type="range" min="0" max="100" value="50" step="5">
-                            <input id="water_range" class="slider" type="range" min="0" max="100" value="50" step="5">
+                            <input id="xo_slider" class="slider" type="range" min="0" max="100" value="50" step="5">
+                            <input id="xi_slider" class="slider" type="range" min="0" max="100" value="50" step="5">
+                            <input id="yo_slider" class="slider" type="range" min="0" max="100" value="50" step="5">
+                            <input id="yi_slider" class="slider" type="range" min="0" max="100" value="50" step="5">
+                            <input id="zoom_slider" class="slider" type="range" min="50" max="200" value="150" step="10">
                         </div>
                         <div class="parameter-values">
-                            <p>50%</p>
-                            <p>50%</p>
-                            <p>50%</p>
-                            <p>50%</p>
+                            <p id="xo_display">50%</p>
+                            <p id="xi_display">50%</p>
+                            <p id="yo_display">50%</p>
+                            <p id="yi_display">50%</p>
+                            <p id="zoom_display">150</p>
                         </div>
                     </div>
 
@@ -91,10 +98,10 @@
                             <h4>Falloff</h4>
                         </div>
                         <div class="parameter-inputs">
-                            <input id="water_range" class="numerical" type="number" min="0" max="100" value="50" step="5">
-                            <input id="water_range" class="numerical" type="number" min="0" max="100" value="50" step="5">
-                            <input id="water_range" class="numerical" type="number" min="0" max="100" value="50" step="5">
-                            <input id="water_range" class="numerical" type="number" min="0" max="100" value="50" step="5">
+                            <input id="seed_numerical" class="numerical" type="number" min="0" max="100" value="50" step="5">
+                            <input id="octaves_numerical" class="numerical" type="number" min="0" max="100" value="50" step="5">
+                            <input id="intensity_numerical" class="numerical" type="number" min="0" max="100" value="50" step="5">
+                            <input id="falloff_numerical" class="numerical" type="number" min="0" max="100" value="50" step="5">
                         </div>
                     </div>
 
@@ -106,7 +113,7 @@
                             <h4>Filter</h4>
                         </div>
                         <div class="parameter-inputs">
-                            <select class="select" id="filter_input">
+                            <select id="filter_select" class="select">
                                 <option>Gradient (Default)</option>
                                 <option>Fantasy</option>
                                 <option>3D</option>
@@ -118,7 +125,7 @@
 
                 <!-- BUTTONS -->
                 <h3 class="section-separator">Buttons</h3>
-                <div class="buttonbar">
+                <div class="button-section">
                     <button id="save_button">Save Map</button>
                     <button id="generate_button">Generate</button>
                     <button id="random_button">Randomize</button>
@@ -127,7 +134,7 @@
 
                 <!-- MESSAGES -->
                 <h3 class="section-separator">Messages</h3>
-                <div class="message-box">
+                <div class="message-section">
                     <p><strong>Note:</strong> If the map looks warped, this is due to your window's aspect ratio.
                         The map generates at 16:9 then stretches to match the view. 
                         Saving will be unaffected, though, so don't worry!</p>
@@ -147,7 +154,7 @@
     <!-- FOOTER -->
     <footer>
         <div class="footer-items">
-            v0.2 - Beta
+            v0.3 - Refactor
         </div>
         <div class="footer-items">
             <img alt="Static Badge" src="https://img.shields.io/badge/Made_with_love-pink?style=flat&logo=data%3Aimage%2Fsvg%2Bxml%3Bbase64%2CPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLWhlYXJ0LWljb24gbHVjaWRlLWhlYXJ0Ij48cGF0aCBkPSJNMTkgMTRjMS40OS0xLjQ2IDMtMy4yMSAzLTUuNUE1LjUgNS41IDAgMCAwIDE2LjUgM2MtMS43NiAwLTMgLjUtNC41IDItMS41LTEuNS0yLjc0LTItNC41LTJBNS41IDUuNSAwIDAgMCAyIDguNWMwIDIuMyAxLjUgNC4wNSAzIDUuNWw3IDdaIi8%2BPC9zdmc%2B">
@@ -157,7 +164,7 @@
 
     <!-- SCRIPTS -->
     <script src="https://cdn.jsdelivr.net/npm/p5@1.11.8/lib/p5.min.js"></script> <!--p5-->
-    <script src="./lib/p5.voronoi.min.js"></script> <!--voronoi-->
+
     <script src="./scripts/parameter_manager.js"></script>
     <script src="./scripts/element_manager.js"></script>
     <script src="./scripts/terrain_manager.js"></script>
