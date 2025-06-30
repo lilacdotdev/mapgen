@@ -137,4 +137,8 @@ filter_select.addEventListener("change", () => {
 document.getElementById("generate_button").addEventListener("click", () => {
     redraw();
 });
+
+document.getElementById("save_button").addEventListener("click", () => {
+    saveFrames("map","jpg","1","1");
+});
 /* |-------===| EVENTS | BUTTONS |===-------| */
