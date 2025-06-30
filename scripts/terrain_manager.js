@@ -45,8 +45,24 @@ function Terrain(primary, secondary) {
 //     color(230, 230, 230)  // Secondary Color : Light Gray
 // );
 
+const tropical = {}
+
+const cells = [];
+
 
 /* |-------===| METHODS |===-------| */
+function generate_biomes(){
+    const t_cells = voronoiGetCells();
+    for(let i = 0; i < t_cells.length; i++){
+	cells[i] = t_cells[i]; 
+	cells[i].biome = 0;
+    }
+}
+
+
+function get_biome(x,y){
+    return 0
+}
 
 // ---=== | Terrain_Selector | ===--- //
 function noise_to_terrain(value) {

@@ -1,14 +1,21 @@
-/* |----- Noise / Operations -----| */
-/* |                              | */
-/* |  Noise Systems for octaves   | */
-/* |                              | */
-/* |----- Noise / Operations -----| */
+//          ╭─────────────────────────────────────────────────────────╮
+//          │ Noise System: Voronoi, Perlin, Map Bound Gradients      │
+//          ╰─────────────────────────────────────────────────────────╯
+//  Functions
+// ──────────────────────────────────────────────────────────────────────
+//function distance(p1, p2){
+//    return Math.sqrt(((p2.x - p1.x) ** 2) + ((p2.y - p1.y) ** 2))
+//}
+function voronoi_seeds(n) {
+    const p = [];
+    for(i = 0; i < n; i++){
+	p[i] = createVector(random(width), random(height));
+    }
+    return p;
+}
 
-
-/* |-------===| OBJECTS |===-------| */
-
-// ---=== | Map Object | ===--- //
-
+//  Noise Textures
+// ──────────────────────────────────────────────────────────────────────
 // Perlin
 function perlin_noise() {
     const map = [];
