@@ -45,17 +45,37 @@ function Terrain(primary, secondary) {
 //     color(230, 230, 230)  // Secondary Color : Light Gray
 // );
 
-const tropical = {}
+const tropical = {
+    0: { biome: "Desert", color-1: (,,), color-2: (,,), color-3: (,,) } ,
+    1: { biome: "Beach",, color-1: (,,), color-2: (,,), color-3: (,,) } ,
+    2: { biome: "Rainforest", color-1: (,,), color-2: (,,), color-3: (,,) } ,
+    3: { biome: "Savannah", color-1: (,,), color-2: (,,), color-3: (,,) }
+};
+
+const temperate = {
+    0: { biome: "Forest", color-1: (,,), color-2: (,,), color-3: (,,) } ,
+    1: { biome: "Plains", color-1: (,,), color-2: (,,), color-3: (,,) } ,
+    2: { biome: "Steppes", color-1: (,,), color-2: (,,), color-3: (,,) } ,
+    3: { biome: "Plains" color-1: (,,), color-2: (,,), color-3: (,,) }
+};
+
+const arctic = {
+    0: { biome: "Tundra", color-1: (,,), color-2: (,,), color-3: (,,) } ,
+    1: { biome: "Taiga", color-1: (,,), color-2: (,,), color-3: (,,) } ,
+    2: { biome: "Icy Peaks", color-1: (,,), color-2: (,,), color-3: (,,) } ,
+    3: { biome: "Montane Forest", color-1: (,,), color-2: (,,), color-3: (,,) }
+};
 
 const cells = [];
 
 
 /* |-------===| METHODS |===-------| */
 function generate_biomes(){
-    const t_cells = voronoiGetCells();
-    for(let i = 0; i < t_cells.length; i++){
-	cells[i] = t_cells[i]; 
-	cells[i].biome = 0;
+    const n_cells = voronoiGetCells().length;
+    const t_sites = voronoiGetSites();
+    for(let i = 0; i < n_cells.length; i++){
+	cells[i].cellID = t_cells[i];
+	cells[i].cellSite = t_sites.find(s => s.voronoiID === i);
     }
 }
 
